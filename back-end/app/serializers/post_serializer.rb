@@ -1,3 +1,6 @@
-class PostSerializer < ActiveModel::Serializer
-  attributes :id, :description
+class PostSerializer
+  include FastJsonapi::ObjectSerializer
+  
+  attributes :title, :description, :category
+
 end
