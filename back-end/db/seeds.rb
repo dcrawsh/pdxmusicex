@@ -9,3 +9,7 @@
 forSale = Category.create(name: "For Sale")
 gigs = Category.create(name: "Gigs")
 showReviews = Category.create(name: "Show Reviews")
+
+Post.create(title: 'Sick Fender Mustang', description: "This guitar is in mint condition and sounds so nice!", category_id: 1 )
+
+
