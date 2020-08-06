@@ -2,10 +2,8 @@
 
 one:
   content: MyString
-  post: MyString
-  references: MyString
+  post: one
 
 two:
   content: MyString
-  post: MyString
-  references: MyString
+  post: two
