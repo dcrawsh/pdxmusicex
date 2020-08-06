@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPosts } from './actions/postActions'
-import Posts from './containers/PostsContainer'
+import PostsContainer from './containers/PostsContainer'
 
 import './App.css';
 
@@ -16,8 +16,7 @@ class App extends Component {
     console.log(this.props.posts)
     return (
       <div className="App">
-      
-          
+      <PostsContainer/>  
       </div>
     )
   }
