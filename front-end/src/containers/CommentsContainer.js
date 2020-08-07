@@ -12,7 +12,7 @@ export default class CommentsContainer extends Component {
                 />
                 <Comments
                 comments={this.props.comments}
-                commentId={this.props.comment.id}
+                // commentId={this.props.comment.id}
                 deleteComment={this.props.deleteComment}
                 />
             </div>
