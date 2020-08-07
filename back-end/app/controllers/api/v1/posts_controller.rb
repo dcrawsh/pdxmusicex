@@ -6,6 +6,7 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def create 
+        
         post = Post.new(post_params)
 
         if post.save
@@ -13,6 +14,7 @@ class Api::V1::PostsController < ApplicationController
         else
             render json: {errors: post.errors.full_messages}, status: :unprocessible_entity
         end
+        
     end
 
     private 

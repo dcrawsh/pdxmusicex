@@ -19,7 +19,7 @@ import React, { Component } from 'react';
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addPost(this.state)
+    this.props.postPosts(this.state)
     this.setState({
       title: '',
       description: ''
