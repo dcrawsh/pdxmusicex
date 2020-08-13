@@ -1,11 +1,27 @@
 import React, { Component } from 'react'
+import Comment from './Comment'
 
-export default class Comments extends Component {
+class Comments extends Component {
+
     render() {
+      const { comments } = this.props;
+      console.log(comments)
+      const commentList = comments.map(comment => {
         return (
-            <div>
-                
-            </div>
+          <Comment
+              key={comment.id}
+            //   deletePost={this.props.deletePost}
+              comment={comment}
+          />
         )
+      });
+  
+      return(
+        <ul>
+          {commentList}
+        </ul>
+      );
     }
-}
+  };
+  
+  export default Comments;

@@ -11,7 +11,7 @@ export default class CommentsContainer extends Component {
                 commentId={this.props.post.id}
                 />
                 <Comments
-                comments={this.props.comments}
+                comments={this.props.post.attributes.comments}
                 // commentId={this.props.comment.id}
                 deleteComment={this.props.deleteComment}
                 />
