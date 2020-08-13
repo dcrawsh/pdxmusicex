@@ -15,7 +15,7 @@
 
 // export default postsReducer;
 
-import { POST_POSTS_PENDING, POST_POSTS_SUCCESS, POST_POSTS_FAILURE, GET_POSTS_PENDING, GET_POSTS_SUCCESS, GET_POSTS_FAILURE } from "../actions/postActions";
+import { POST_POSTS_PENDING, POST_POSTS_SUCCESS, POST_POSTS_FAILURE, GET_POSTS_PENDING, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, DELETE_POST_PENDING, DELETE_POST_SUCCESS, DELETE_POST_FAILURE } from "../actions/postActions";
 const initialState = {
   loading: false,
   posts: [],
@@ -26,15 +26,14 @@ const postsReducer = (state = initialState, { type, payload }) => {
       case GET_POSTS_PENDING: {
         return {
           ...state,
-          loading: true,
-          posts: [...state.posts],
+          loading: true
         }
       }
       case GET_POSTS_SUCCESS: {
         return {
           ...state,
           loading: false,
-          posts: [...payload],
+          posts: [...payload]
         }
       }
       case GET_POSTS_FAILURE: {
@@ -43,22 +42,41 @@ const postsReducer = (state = initialState, { type, payload }) => {
           loading: false,
         }
       }
-      // case POST_POSTS_PENDING: {
-      //   return {
-      //     ...state,
-      //   }
-      // }
+      case POST_POSTS_PENDING: {
+        return {
+          ...state,
+        }
+      }
       case POST_POSTS_SUCCESS: {
         return {
           ...state,
-          posts: [ ...state.posts, payload ],
+          posts: [ ...state.posts, payload.data],
         }
       }
-      // case POST_POSTS_FAILURE: {
-      //   return {
-      //     ...state,
-      //   }
-      // }
+      case POST_POSTS_FAILURE: {
+        return {
+          ...state,
+        }
+      }
+      case DELETE_POST_PENDING: {
+        return {
+          ...state,
+          loading: true
+        }
+      }
+      case DELETE_POST_SUCCESS: {
+        return {
+          ...state,
+          loading: false,
+          posts: [...payload]
+        }
+      }
+      case DELETE_POST_FAILURE: {
+        return {
+          ...state,
+          loading: false,
+        }
+      }
       default:
         return state;
     }

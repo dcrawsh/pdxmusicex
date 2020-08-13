@@ -10,6 +10,7 @@ class Posts extends Component {
       return (
         <Post
             key={post.id}
+            deletePost={this.props.deletePost}
             post={post}
         />
       )

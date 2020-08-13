@@ -4,7 +4,7 @@ import CommentsContainer from '../../containers/CommentsContainer'
 class Post extends Component {
 
   handleOnClick() {
-    this.props.deleteRestaurant(this.props.post.id);
+    this.props.deletePost(this.props.post);
   }
 
   render() {
