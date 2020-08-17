@@ -68,7 +68,7 @@ const postsReducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           loading: false,
-          posts: [...payload]
+          posts: [...payload.data]
         }
       }
       case DELETE_POST_FAILURE: {
