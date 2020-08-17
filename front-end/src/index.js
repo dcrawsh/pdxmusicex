@@ -9,7 +9,7 @@ import thunk from 'redux-thunk'
 import postsReducer from './reducers/postsReducer'
 
 
-const store = createStore(postsReducer, applyMiddleware(thunk))
+const store = createStore(postsReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()&&applyMiddleware(thunk),)
 
 ReactDOM.render(
   <Provider store={store}>
