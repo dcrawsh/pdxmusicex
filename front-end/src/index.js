@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import postsReducer from './reducers/postsReducer'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 
-const store = createStore(postsReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()&&applyMiddleware(thunk),)
+const store = createStore(postsReducer,composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
