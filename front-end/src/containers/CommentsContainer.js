@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CommentInput from '../components/comments/CommentInput'
 import Comments from '../components/comments/Comments'
 import { connect } from 'react-redux'
 
@@ -18,8 +17,8 @@ class CommentsContainer extends Component {
     }
 }
 
-const mapDispatchToProps = () => {
-    return {}
+const mapDispatchToProps = (dispatch) => {
+    return {deletePost: payload => dispatch(payload) }
 }
 
 const mapStateToProps = () => {
