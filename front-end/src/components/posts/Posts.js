@@ -6,7 +6,7 @@ class Posts extends Component {
   render() {
     const { posts } = this.props;
     console.log(posts)
-    const postList = posts.map(post => {
+    const postList = posts.posts.map(post => {
       return (
         <Post
             key={post.id}

@@ -2,14 +2,35 @@ import { POST_COMMENT_PENDING, POST_COMMENT_SUCCESS, POST_COMMENT_FAILURE, GET_C
 
 
 const initialCommentState = {
-    loading: false,
-    comments: [],
-  }
+  loading: false,
+  comments: [],
+}
 
 
 export default function commentsReducer (state = initialCommentState, { type, payload }) {
     
     switch(type) {
+    //   add GET_COMMENT
+      
+      case GET_COMMENTS_PENDING: {
+        return {
+          ...state,
+          loading: true
+        }
+      }
+      case GET_COMMENTS_SUCCESS: {
+        return {
+          ...state,
+          loading: false,
+          comments: [ ...payload],
+        }
+      }
+      case GET_COMMENTS_FAILURE: {
+        return {
+          ...state,
+          loading: false
+        }
+      }
       case POST_COMMENT_PENDING: {
         return {
           ...state,

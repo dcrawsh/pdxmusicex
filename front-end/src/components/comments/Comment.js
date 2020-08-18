@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
 import CommentInput from './CommentInput'
 
+
+
+
+
 export default class Comment extends Component {
+
+    handleOnClick() {
+        this.props.deleteComment(this.props.comment)
+    }
+
+
     render() {
         return (
             <div>
                 {this.props.comment.content}
-                <CommentInput/>
+                <button onClick={() => this.handleOnClick()}> X </button>
+                {/* <CommentInput postId={this.props.comment.post_id} postComment={this.props.postComment}/> */}
             </div>
         )
     }

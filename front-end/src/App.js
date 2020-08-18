@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPosts } from './actions/postActions'
+import { fetchComments } from './actions/commentActions'
 import PostsContainer from './containers/PostsContainer'
 
 import './App.css';
@@ -10,6 +11,7 @@ class App extends Component {
   componentDidMount() {
     console.log(this.props)
     this.props.fetchPosts()
+    this.props.fetchComments()
   }
   
   render () {
@@ -31,7 +33,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPosts: () => dispatch(fetchPosts())
+    fetchPosts: () => dispatch(fetchPosts()),
+    fetchComments: () => dispatch(fetchComments())
   }
 }
 

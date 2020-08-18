@@ -8,6 +8,7 @@ export const fetchComments = () => {
     fetch('http://localhost:3000/api/v1/comments').then(response => {
       return response.json()})
       .then(responseJSON => {
+        
         return dispatch({ type: GET_COMMENTS_SUCCESS, payload: responseJSON.data })
       })
       .catch(err => {
@@ -20,9 +21,10 @@ export const POST_COMMENT_PENDING = `POST COMMENT PENDING`;
 export const POST_COMMENT_SUCCESS = `POST COMMENT SUCCESS`;
 export const POST_COMMENT_FAILURE = `POST COMMENT FAILURE`;
 
-export const postComment = (comment) => {
+
+export const postComment = (comment, postId) => {
   
-  let formData = {comment: comment}
+  let formData = {comment: comment, postId}
 
   let configObj = {
     method: "POST",
@@ -72,7 +74,7 @@ export const deleteComment = (comment) => {
     .then(response => response.json()) 
     .then(responseJSON => {
       console.log(responseJSON)
-      return dispatch({ type: DELETE_COMMENT_SUCCESS, payload: responseJSON })
+      return dispatch({ type: DELETE_COMMENT_SUCCESS, payload: responseJSON.data})
     }).catch(err => {
       dispatch({ type: DELETE_COMMENT_FAILURE, payload: err })
     })

@@ -10,7 +10,8 @@ class Comments extends Component {
         return (
           <Comment
               key={comment.id}
-            //   deletePost={this.props.deletePost}
+              deleteComment={this.props.deleteComment}
+              postComment={this.props.postComment}
               comment={comment}
           />
         )

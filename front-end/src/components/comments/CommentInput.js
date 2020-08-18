@@ -6,7 +6,8 @@ import React, { Component } from 'react';
     super(props);
 
     this.state = {
-      content: ''
+      content: '',
+      post_id: this.props.postId
     };
   };
 
@@ -18,7 +19,7 @@ import React, { Component } from 'react';
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.postPosts(this.state)
+    this.props.postComment(this.state)
     this.setState({
       content: '',
     });
