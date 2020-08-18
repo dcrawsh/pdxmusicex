@@ -43,7 +43,7 @@ export const postComment = (comment, postId) => {
     fetch('http://localhost:3000/api/v1/comments', configObj)
     .then(response => response.json()) 
     .then(responseJSON => {
-      return dispatch({ type: POST_COMMENT_SUCCESS, payload: responseJSON })
+      return dispatch({ type: POST_COMMENT_SUCCESS, payload: responseJSON.data })
     }).catch(err => {
       dispatch({ type: POST_COMMENT_FAILURE, payload: err })
     })

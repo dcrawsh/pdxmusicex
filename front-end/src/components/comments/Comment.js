@@ -9,7 +9,12 @@ export default class Comment extends Component {
 
     handleOnClick() {
         this.props.deleteComment(this.props.comment)
+        this.refreshPage()
     }
+
+    refreshPage() {
+        window.location.reload(false);
+      }
 
 
     render() {

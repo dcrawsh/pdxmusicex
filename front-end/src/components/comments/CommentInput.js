@@ -23,6 +23,12 @@ import React, { Component } from 'react';
     this.setState({
       content: '',
     });
+    this.refreshPage()
+    
+  }
+
+  refreshPage() {
+    window.location.reload(false);
   }
 
   render() {
