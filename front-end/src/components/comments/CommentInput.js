@@ -21,15 +21,16 @@ import React, { Component } from 'react';
     event.preventDefault();
     this.props.postComment(this.state)
     this.setState({
-      content: '',
+      content: ''
     });
-    this.refreshPage()
+    this.props.fetchPosts()
+    // this.refreshPage()
     
   }
 
-  refreshPage() {
-    window.location.reload(false);
-  }
+  // refreshPage() {
+  //   window.location.reload(false);
+  // }
 
   render() {
     return (

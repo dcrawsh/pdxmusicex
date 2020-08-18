@@ -1,13 +1,13 @@
 import { GET_CATEGORIES_PENDING, GET_CATEGORIES_SUCCESS, GET_CATEGORIES_FAILURE  } from "../actions/categoryActions";
 
 
-const initialCommentState = {
+const initialCategoryState = {
   loading: false,
-  comments: [],
+  categories: [],
 }
 
 
-export default function commentsReducer (state = initialCommentState, { type, payload }) {
+export default function categoriessReducer (state = initialCategoryState, { type, payload }) {
     
     switch(type) {
     //   add GET_COMMENT
@@ -31,3 +31,7 @@ export default function commentsReducer (state = initialCommentState, { type, pa
           loading: false
         }
       }
+      default:
+        return state;
+    }
+  }

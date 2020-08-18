@@ -40,6 +40,7 @@ export default function commentsReducer (state = initialCommentState, { type, pa
         return {
           ...state,
           comments: [ ...state.comments, payload.data],
+          
         }
       }
       case POST_COMMENT_FAILURE: {

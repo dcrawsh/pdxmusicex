@@ -1,6 +1,6 @@
 class Api::V1::PostsController < ApplicationController
 
-    before_action :find_category, only: [:create]
+    # before_action :find_category, only: [:create]
 
     def index
         posts = Post.all 
@@ -10,7 +10,7 @@ class Api::V1::PostsController < ApplicationController
     def create 
         
         post = Post.new(post_params)
-        post.category = Category.last
+       
 
         if post.save!
             render json: PostSerializer.new(post), status: :accepted
@@ -35,7 +35,7 @@ class Api::V1::PostsController < ApplicationController
 
 
     def post_params 
-        params.require(:post).permit(:title, :description)
+        params.require(:post).permit(:title, :description, :category_id)
     end
 
     

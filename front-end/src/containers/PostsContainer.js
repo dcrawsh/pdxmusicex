@@ -9,15 +9,16 @@ class PostsContainer extends Component {
     render() {
         return (
             <div>
-                <PostsInput postPosts={this.props.postPosts}/>
-               <Posts posts={this.props.posts} deletePost={this.props.deletePost}/>
+                <PostsInput fetchPosts={this.props.fetchPosts} postPosts={this.props.postPosts} categories={this.props.categories}/>
+               <Posts fetchPosts={this.props.fetchPosts} posts={this.props.posts} deletePost={this.props.deletePost}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return {posts: state.posts}
+    return {posts: state.posts,
+    categories: state.categories}
 }
 
 const mapDispatchToProps = dispatch => {

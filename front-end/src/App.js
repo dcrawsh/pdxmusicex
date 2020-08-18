@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPosts } from './actions/postActions'
 import { fetchComments } from './actions/commentActions'
+import { fetchCategories } from './actions/categoryActions'
 import PostsContainer from './containers/PostsContainer'
 
 import './App.css';
@@ -9,16 +10,16 @@ import './App.css';
 class App extends Component {
   
   componentDidMount() {
-    console.log(this.props)
+    
     this.props.fetchPosts()
     this.props.fetchComments()
+    this.props.fetchCategories()
   }
   
   render () {
-    console.log(this.props.posts)
     return (
       <div className="App">
-      <PostsContainer/>  
+      <PostsContainer fetchPosts={this.props.fetchPosts}/>  
       </div>
     )
   }
@@ -27,14 +28,16 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     posts: state.posts,
-    loading: state.loading
+    loading: state.loading,
+    categories: state.categories
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchPosts: () => dispatch(fetchPosts()),
-    fetchComments: () => dispatch(fetchComments())
+    fetchComments: () => dispatch(fetchComments()),
+    fetchCategories: () => dispatch(fetchCategories())
   }
 }
 

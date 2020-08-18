@@ -17,7 +17,7 @@ class Post extends Component {
           {post.attributes.description}
           <button onClick={() => this.handleOnClick()}> X </button>
         </p>
-        <CommentsContainer post={post}/>
+        <CommentsContainer fetchPosts={this.props.fetchPosts} post={post}/>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CommentInput from './CommentInput'
 
 
 
@@ -9,12 +8,12 @@ export default class Comment extends Component {
 
     handleOnClick() {
         this.props.deleteComment(this.props.comment)
-        this.refreshPage()
+        // this.refreshPage()
     }
 
-    refreshPage() {
-        window.location.reload(false);
-      }
+    // refreshPage() {
+    //     window.location.reload(false);
+    //   }
 
 
     render() {
