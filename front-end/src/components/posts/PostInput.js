@@ -31,7 +31,7 @@ import React, { Component } from 'react';
   render() {
     
     const mapCategories = () => {
-      return this.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
+      return this.props.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
     }
     
     
