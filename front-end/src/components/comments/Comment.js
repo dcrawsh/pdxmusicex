@@ -17,6 +17,7 @@ export default class Comment extends Component {
 
 
     render() {
+        console.log(this.props.comment)
         return (
             <div>
                 {this.props.comment.content}

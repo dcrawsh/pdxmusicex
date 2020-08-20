@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer'
 
 class Post extends Component {
+  
 
   handleOnClick() {
     this.props.deletePost(this.props.post);
   }
 
   render() {
-    const { post } = this.props;
+    const { attributes } = this.props.location.state
+    
 
     return (
       <div>
-        <h4>{post.attributes.title}</h4>
+        
+        <h3>Post</h3>
+        <h4>{attributes.title}</h4>
         <p>
-          {post.attributes.description}
+          {attributes.description}
           <button onClick={() => this.handleOnClick()}> X </button>
         </p>
-        <CommentsContainer fetchPosts={this.props.fetchPosts} post={post}/>
+        <CommentsContainer comments={attributes.comments}/>
       </div>
     );
   }

@@ -9,9 +9,9 @@ class CommentsContainer extends Component {
     render() {
         return (
             <div>
-                <CommentInput fetchPosts={this.props.fetchPosts} postComment={this.props.postComment} postId={this.props.post.id}/>
+                {/* <CommentInput postComment={this.props.postComment} postId={this.props.post.id}/> */}
                 <Comments
-                comments={this.props.post.attributes.comments}
+                comments={this.props.comments}
                 // commentId={this.props.comment.id}
                 deleteComment={this.props.deleteComment}
                 postComment={this.props.postComment}

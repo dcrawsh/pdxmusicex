@@ -4,10 +4,11 @@ import Comment from './Comment'
 class Comments extends Component {
 
     render() {
-      const { comments } = this.props;
+      const comments = this.props.comments;
       console.log(comments)
       const commentList = comments.map(comment => {
         return (
+          
           <Comment
               key={comment.id}
               deleteComment={this.props.deleteComment}
@@ -18,9 +19,12 @@ class Comments extends Component {
       });
   
       return(
-        <ul>
-          {commentList}
-        </ul>
+        <div>
+          <h3>Comments:</h3>
+          <ul>
+            {commentList}
+          </ul>
+        </div>
       );
     }
   };

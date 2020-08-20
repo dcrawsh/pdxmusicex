@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { fetchPosts } from '../../actions/postActions'
 
- export default class CommentInput extends Component {
+
+
+class CommentInput extends Component {
 
   constructor(props) {
     super(props);
@@ -47,3 +51,15 @@ import React, { Component } from 'react';
     );
   }
 };
+
+
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPosts: () => dispatch(fetchPosts()),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CommentInput);
+

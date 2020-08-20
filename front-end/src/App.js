@@ -4,8 +4,14 @@ import { fetchPosts } from './actions/postActions'
 import { fetchComments } from './actions/commentActions'
 import { fetchCategories } from './actions/categoryActions'
 import PostsContainer from './containers/PostsContainer'
-
+import Nav from './components/Nav'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import About from './components/About'
 import './App.css';
+import PostInput from './components/posts/PostInput';
+import Post from './components/posts/Post'
+
+
 
 class App extends Component {
   
@@ -18,9 +24,16 @@ class App extends Component {
   
   render () {
     return (
-      <div className="App">
-      <PostsContainer fetchPosts={this.props.fetchPosts}/>  
-      </div>
+      <Router>
+        <div>
+        <Nav/>
+        <Route path="/about" exact component={About}/>
+        <Route path="/posts" exact render={() => <PostsContainer fetchPosts={this.props.fetchPosts} /> } />
+        <Route path="/posts/:id" exact component={Post}/>
+        <Route path="/posts/new" component={PostInput}/>
+    
+        </div>
+      </Router>
     )
   }
 }

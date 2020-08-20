@@ -9,7 +9,7 @@ class PostsContainer extends Component {
     render() {
         return (
             <div>
-                <PostsInput fetchPosts={this.props.fetchPosts} postPosts={this.props.postPosts} categories={this.props.categories}/>
+                {/* <PostsInput fetchPosts={this.props.fetchPosts} postPosts={this.props.postPosts} categories={this.props.categories}/> */}
                <Posts fetchPosts={this.props.fetchPosts} posts={this.props.posts} deletePost={this.props.deletePost}/>
             </div>
         )

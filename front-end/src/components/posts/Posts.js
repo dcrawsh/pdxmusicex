@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from './Post';
+import { Link } from 'react-router-dom'
 
 class Posts extends Component {
 
@@ -8,12 +9,13 @@ class Posts extends Component {
     console.log(posts)
     const postList = posts.posts.map(post => {
       return (
-        <Post
-            key={post.id}
-            deletePost={this.props.deletePost}
-            fetchPosts={this.props.fetchPosts}
-            post={post}
-        />
+        <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
+        // // <Post
+        //     // key={post.id}
+        //     // deletePost={this.props.deletePost}
+        //     // fetchPosts={this.props.fetchPosts}
+        //     // post={post}
+        // />
       )
     });
 
