@@ -25,14 +25,15 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <div>
+        
         <Nav/>
         <Route path="/about" exact component={About}/>
         <Route path="/posts" exact render={() => <PostsContainer fetchPosts={this.props.fetchPosts} /> } />
-        <Route path="/posts/:id" exact component={Post}/>
         <Route path="/posts/new" exact component={PostInput}/>
+        <Route path="/posts/:id" exact component={Post}/>
+        
     
-        </div>
+       
       </Router>
     )
   }

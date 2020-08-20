@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchPosts } from '../../actions/postActions'
-
+import { postComment } from '../../actions/commentActions'
 
 
 class CommentInput extends Component {
@@ -27,7 +26,6 @@ class CommentInput extends Component {
     this.setState({
       content: ''
     });
-    this.props.fetchPosts()
     // this.refreshPage()
     
   }
@@ -57,7 +55,7 @@ class CommentInput extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPosts: () => dispatch(fetchPosts()),
+    postComment: (payload) => dispatch(postComment(payload)),
   }
 }
 

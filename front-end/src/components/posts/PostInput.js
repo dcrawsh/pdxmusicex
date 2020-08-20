@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
- export default class PostInput extends Component {
+ class PostInput extends Component {
 
   constructor(props) {
     super(props);
@@ -31,7 +31,7 @@ import React, { Component } from 'react';
   render() {
     
     const mapCategories = () => {
-      return this.props.categories.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
+      return this.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
     }
     
     
@@ -57,4 +57,11 @@ import React, { Component } from 'react';
       </div>
     );
   }
-};
+
+}
+
+const maptStateToProps = (state) => {
+  return {categories: state.categories}
+}
+
+export default (maptStateToProps)(PostInput)

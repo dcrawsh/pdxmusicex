@@ -9,9 +9,11 @@ class Post extends Component {
   }
 
   render() {
+    
+    const postId = this.props.location.state.id
     const { attributes } = this.props.location.state
     
-
+    
     return (
       <div>
         
@@ -21,7 +23,7 @@ class Post extends Component {
           {attributes.description}
           <button onClick={() => this.handleOnClick()}> X </button>
         </p>
-        <CommentsContainer comments={attributes.comments}/>
+        <CommentsContainer comments={attributes.comments} postId={postId}/>
       </div>
     );
   }
