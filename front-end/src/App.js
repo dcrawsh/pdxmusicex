@@ -10,6 +10,7 @@ import About from './components/About'
 import './App.css';
 import PostInput from './components/posts/PostInput';
 import Post from './components/posts/Post'
+import Root from './components/Root'
 
 
 
@@ -27,6 +28,7 @@ class App extends Component {
       <Router>
         
         <Nav/>
+        <Route path="/" exact component={Root}/>
         <Route path="/about" exact component={About}/>
         <Route path="/posts" exact render={() => <PostsContainer fetchPosts={this.props.fetchPosts} /> } />
         <Route path="/posts/new" exact component={PostInput}/>
