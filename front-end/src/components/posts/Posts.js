@@ -6,25 +6,18 @@ import { connect } from 'react-redux';
 class Posts extends Component {
 
   state = {
-    posts: []
+    selectedId: null
   }
-
-  componentDidMount() {
-    
-   
-  }
-
 
   mapCategories = () => {
     return this.props.categories.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
   }
 
   handleOnChange = (event) => {
-    
-    const { posts } = this.props
-    const filteredPosts = posts.posts.filter((post) => { 
-      return post.attributes.category.id != event.target.value})
-    
+    this.setState({
+      selectedId: event.target.value
+    })
+
   }
   
   
@@ -35,9 +28,17 @@ class Posts extends Component {
     
     const { posts } = this.props;
     // console.log(posts)
+    let filteredPosts = posts.posts
+    if(this.state.selectedId !== null){
+      filteredPosts = posts.posts.filter((post) => { 
+        console.log(post)
+        return post.attributes.category.id == this.state.selectedId})
+    } 
+  
+    
 
     
-    const postList = posts.posts.map(post => {
+    const postList = filteredPosts.map(post => {
       return (
         <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
         // // <Post

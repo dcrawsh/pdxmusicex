@@ -17,7 +17,7 @@ class Comments extends Component {
           <Comment
               key={comment.id}
               deleteComment={this.props.deleteComment}
-              postComment={this.props.postComment}
+              fetchPosts={this.props.fetchPosts}
               comment={comment}
           />
         )

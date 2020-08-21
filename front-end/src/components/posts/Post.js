@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer'
 import { connect } from 'react-redux';
 
-export default class Post extends Component {
+
+
+class Post extends Component {
   
   
   
@@ -11,11 +13,18 @@ export default class Post extends Component {
   }
 
   render() {
-    debugger
-    // const postId = this.props.match.params.id
+    
+    const postId = this.props.match.params.id
 
-    // const post = this.props.posts.posts.find(post => post.id === postId)
+    const post = this.props.posts.posts.find(post => post.id === postId)
 
+    if(!post) {
+      return (
+        <div>
+          loading post
+        </div>
+      )
+    }
     
     
     
@@ -38,4 +47,6 @@ const mapStateToProps = (state) => {
   return {posts: state.posts}
 }
 
-connect(mapStateToProps)(Post)
+
+
+export default connect(mapStateToProps)(Post)

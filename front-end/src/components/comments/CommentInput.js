@@ -26,8 +26,7 @@ class CommentInput extends Component {
     this.setState({
       content: ''
     });
-    // this.refreshPage()
-    
+    this.props.fetchPosts()
   }
 
   // refreshPage() {

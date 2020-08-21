@@ -18,7 +18,7 @@
 
 
 import { POST_POSTS_PENDING, POST_POSTS_SUCCESS, POST_POSTS_FAILURE, GET_POSTS_PENDING, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, DELETE_POST_PENDING, DELETE_POST_SUCCESS, DELETE_POST_FAILURE } from "../actions/postActions";
-import { DELETE_COMMENT_SUCCESS } from '../actions/commentActions'
+import { DELETE_COMMENT_SUCCESS, POST_COMMENT_SUCCESS } from '../actions/commentActions'
 
 const initialPostState = {
   loading: false,
@@ -30,13 +30,13 @@ const initialPostState = {
     switch(type) {
       
       
-      case GET_POSTS_PENDING: {
+      case POST_COMMENT_SUCCESS: {
         return {
           ...state,
           loading: true
         }
       }
-      case DELETE_COMMENT_SUCCESS: {
+      case GET_POSTS_PENDING: {
         return {
           ...state,
           loading: true

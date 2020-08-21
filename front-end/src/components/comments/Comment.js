@@ -8,7 +8,7 @@ export default class Comment extends Component {
 
     handleOnClick() {
         this.props.deleteComment(this.props.comment)
-        // this.refreshPage()
+        this.props.fetchPosts()
     }
 
     // refreshPage() {
