@@ -1,32 +1,41 @@
 import React, { Component } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer'
+import { connect } from 'react-redux';
 
-class Post extends Component {
+export default class Post extends Component {
   
-
+  
+  
   handleOnClick() {
     this.props.deletePost(this.props.post);
   }
 
   render() {
+    debugger
+    // const postId = this.props.match.params.id
+
+    // const post = this.props.posts.posts.find(post => post.id === postId)
+
     
-    const postId = this.props.location.state.id
-    const { attributes } = this.props.location.state
     
     
     return (
       <div>
         
         <h3>Post</h3>
-        <h4>{attributes.title}</h4>
+        <h4>{post.attributes.title}</h4>
         <p>
-          {attributes.description}
+          {post.attributes.description}
           <button onClick={() => this.handleOnClick()}> X </button>
         </p>
-        <CommentsContainer comments={attributes.comments} postId={postId}/>
+        <CommentsContainer comments={post.attributes.comments} postId={postId}/>
       </div>
     );
   }
 };
 
-export default Post;
+const mapStateToProps = (state) => {
+  return {posts: state.posts}
+}
+
+connect(mapStateToProps)(Post)

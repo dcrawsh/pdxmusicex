@@ -39,7 +39,7 @@ class Posts extends Component {
     
     const postList = posts.posts.map(post => {
       return (
-        <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{id: post.id, attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
+        <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
         // // <Post
         //     // key={post.id}
         //     // deletePost={this.props.deletePost}

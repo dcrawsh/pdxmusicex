@@ -11,7 +11,7 @@ class CommentsContainer extends Component {
             <div>
                 <CommentInput postComment={this.props.postComment} postId={this.props.postId}/>
                 <Comments
-                comments={this.props.comments}
+                // comments={this.props.comments}
                 // commentId={this.props.comment.id}
                 deleteComment={this.props.deleteComment}
                 postComment={this.props.postComment}
