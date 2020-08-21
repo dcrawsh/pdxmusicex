@@ -5,6 +5,15 @@ import { connect } from 'react-redux';
 
 class Posts extends Component {
 
+  state = {
+    posts: []
+  }
+
+  componentDidMount() {
+    
+   
+  }
+
 
   mapCategories = () => {
     return this.props.categories.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
@@ -23,11 +32,12 @@ class Posts extends Component {
    
       
   render() {
-    const { posts } = this.props;
-    console.log(posts)
+    
+    // const { posts } = this.props;
+    // console.log(posts)
 
     
-    const postList = posts.posts.map(post => {
+    const postList = this.state.posts.map(post => {
       return (
         <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{id: post.id, attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
         // // <Post
