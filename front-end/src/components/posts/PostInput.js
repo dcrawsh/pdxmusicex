@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
  class PostInput extends Component {
 
@@ -60,8 +61,8 @@ import React, { Component } from 'react';
 
 }
 
-const maptStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {categories: state.categories}
 }
 
-export default (maptStateToProps)(PostInput)
+export default connect(mapStateToProps)(PostInput)
