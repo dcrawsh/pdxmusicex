@@ -3,6 +3,11 @@ import Comment from './Comment'
 
 class Comments extends Component {
 
+
+    state = {
+      comments: []
+    }
+
     render() {
       const comments = this.props.comments;
       console.log(comments)

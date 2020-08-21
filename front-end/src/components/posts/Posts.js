@@ -9,6 +9,14 @@ class Posts extends Component {
   mapCategories = () => {
     return this.props.categories.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
   }
+
+  handleOnChange = (event) => {
+    
+    const { posts } = this.props
+    const filteredPosts = posts.posts.filter((post) => { 
+      return post.attributes.category.id != event.target.value})
+    
+  }
   
   
 
@@ -33,13 +41,13 @@ class Posts extends Component {
 
     return(
       <div>
-      <form onSubmit={(event) => this.handleOnSubmit(event)} >
+      
         <label htmlFor="category">Filter By Category:</label>
           <select onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
              <option value="">--Please choose an option--</option>
               {this.mapCategories()}
           </select><br></br>
-      </form>
+      
       <ul>
         {postList}
       </ul>
