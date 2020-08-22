@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Post from './Post';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -29,10 +28,19 @@ class Posts extends Component {
     const { posts } = this.props;
     // console.log(posts)
     let filteredPosts = posts.posts
+
+    if(!posts) {
+      return (
+        <div>
+          loading post
+        </div>
+      )
+    }
+    
     if(this.state.selectedId !== null){
       filteredPosts = posts.posts.filter((post) => { 
         console.log(post)
-        return post.attributes.category.id == this.state.selectedId})
+        return post.attributes.category.id === parseInt(this.state.selectedId)})
     } 
   
     
@@ -41,12 +49,6 @@ class Posts extends Component {
     const postList = filteredPosts.map(post => {
       return (
         <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
-        // // <Post
-        //     // key={post.id}
-        //     // deletePost={this.props.deletePost}
-        //     // fetchPosts={this.props.fetchPosts}
-        //     // post={post}
-        // />
       )
     });
 

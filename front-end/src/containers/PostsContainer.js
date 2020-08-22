@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PostsInput from '../components/posts/PostInput'
 import Posts from '../components/posts/Posts'
 import { postPosts } from '../actions/postActions'
 import { deletePost } from '../actions/postActions'

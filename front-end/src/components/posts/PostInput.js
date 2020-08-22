@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { postPosts } from '../../actions/postActions'
 
  class PostInput extends Component {
 
@@ -27,12 +28,14 @@ import { connect } from 'react-redux'
       description: '',
       category: ''
     });
+    alert('Post Created')
+    window.location.replace('/posts')
   }
 
   render() {
     
     const mapCategories = () => {
-      return this.props.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
+      return this.props.categories.categories.map(category => <option key={category.id} value={category.id}>{category.attributes.name}</option>)
     }
     
     
@@ -65,4 +68,8 @@ const mapStateToProps = (state) => {
   return {categories: state.categories}
 }
 
-export default connect(mapStateToProps)(PostInput)
+const mapDispatchToProps = (dispatch) => {
+  return {postPosts: payload => dispatch(postPosts(payload))}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostInput)
