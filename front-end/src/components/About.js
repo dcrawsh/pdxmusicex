@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div>
             <h1>About</h1>
-            <p>This is a community page build to share information about our beloved Portland Music Scene.</p>
+            <p>This is a community page built to share information about our beloved Portland Music Scene.</p>
         </div>
     )
 }

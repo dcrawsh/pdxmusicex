@@ -25,11 +25,13 @@ class Post extends Component {
         </div>
       )
     }
+
+    
     
     
     
     return (
-      <div>
+      <div className="card">
         
         <h3>Post</h3>
         <h4>{post.attributes.title}</h4>

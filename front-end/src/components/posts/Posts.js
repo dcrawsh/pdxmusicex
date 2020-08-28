@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import railsDateConverter from '../../utils/railsDateConverter'
 
 class Posts extends Component {
 
@@ -18,6 +19,8 @@ class Posts extends Component {
     })
 
   }
+
+  
   
   
 
@@ -48,16 +51,16 @@ class Posts extends Component {
     
     const postList = filteredPosts.map(post => {
       return (
-        <h3 key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link></h3>
+        <h3 className='card' key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link><p>{post.attributes.description}</p><p>{railsDateConverter(post.attributes.updated_at)}</p></h3>
       )
     });
 
     return(
-      <div>
+      <div className='posts'>
       
-        <label htmlFor="category">Filter By Category:</label>
-          <select onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
-             <option value="">--Please choose an option--</option>
+       
+          <select id="filter" className='filter' onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
+             <option value="">--Filter Posts--</option>
               {this.mapCategories()}
           </select><br></br>
       

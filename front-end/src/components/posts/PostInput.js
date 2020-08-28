@@ -40,20 +40,25 @@ import { postPosts } from '../../actions/postActions'
     
     
     return (
-      <div>
+      <div className='container'>
         <h3>New Post</h3>
         <form onSubmit={(event) => this.handleOnSubmit(event)} >
+        <div className="row">
+        <div className="col-25">
           <label htmlFor="category">Choose a category:</label>
+        </div>
             <select onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
                <option value="">--Please choose an option--</option>
                 {mapCategories()}
-            </select><br></br>
-          <input
-            type="text" name="title"
+            </select>
+            </div>
+            <br></br>
+            <label htmlFor="formTitle">Title:</label>
+          <input type="text" name="title"
             value={this.state.title}
             onChange={(event) => this.handleOnChange(event)}/><br></br>
-          <textarea
-            type="textarea" name="description"
+            <label htmlFor="formDescription">Description:</label>
+          <textarea type="textarea" rows="10" cols="50" name="description"
             value={this.state.description}
             onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" />
