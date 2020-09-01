@@ -8,9 +8,9 @@ class Post extends Component {
   
   
   
-  handleOnClick() {
-    this.props.deletePost(this.props.post);
-  }
+  // handleOnClick() {
+  //   this.props.deletePost(this.props.post);
+  // }
 
   render() {
     
@@ -37,7 +37,7 @@ class Post extends Component {
         <h4>{post.attributes.title}</h4>
         <p>
           {post.attributes.description}
-          <button onClick={() => this.handleOnClick()}> X </button>
+          {/* <button onClick={() => this.handleOnClick()}> X </button> */}
         </p>
         <CommentsContainer comments={post.attributes.comments} postId={postId}/>
       </div>
