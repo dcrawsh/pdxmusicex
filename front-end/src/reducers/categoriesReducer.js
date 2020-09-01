@@ -10,7 +10,6 @@ const initialCategoryState = {
 export default function categoriessReducer (state = initialCategoryState, { type, payload }) {
     
     switch(type) {
-    //   add GET_COMMENT
       
       case GET_CATEGORIES_PENDING: {
         return {

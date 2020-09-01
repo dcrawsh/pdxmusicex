@@ -21,18 +21,14 @@ class Posts extends Component {
   }
 
   
-  
-  
-
-   
-      
   render() {
     
     const { posts } = this.props;
-    // console.log(posts)
+   
     let filteredPosts = posts.posts
+   
 
-    if(!posts) {
+    if(!posts.posts) {
       return (
         <div>
           loading post
@@ -59,8 +55,10 @@ class Posts extends Component {
       <div className='posts'>
       
        
+          
           <select id="filter" className='filter' onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
              <option value="">--Filter Posts--</option>
+             <option value="All">All</option>
               {this.mapCategories()}
           </select><br></br>
       
@@ -74,6 +72,10 @@ class Posts extends Component {
 
 const mapStateToProps = (state) => {
   return {categories: state.categories}
+}
+
+const mapDispathToProps = (dispatch) => {
+  return 
 }
 
 export default connect(mapStateToProps)(Posts);

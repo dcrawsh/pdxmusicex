@@ -10,7 +10,6 @@ const initialCommentState = {
 export default function commentsReducer (state = initialCommentState, { type, payload }) {
     
     switch(type) {
-    //   add GET_COMMENT
       
       case GET_COMMENTS_PENDING: {
         return {
