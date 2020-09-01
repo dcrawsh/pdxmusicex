@@ -17,7 +17,10 @@ class Posts extends Component {
     this.setState({
       selectedId: event.target.value
     })
+  }
 
+  handleOnClick = (event) => {
+    this.props.deletePost(event.target.id)
   }
 
   
@@ -47,7 +50,7 @@ class Posts extends Component {
     
     const postList = filteredPosts.map(post => {
       return (
-        <h3 className='card' key={post.id}><Link to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link><p>{post.attributes.description}</p><p>{railsDateConverter(post.attributes.updated_at)}</p></h3>
+        <h3 className='card' key={post.id}><Link id={post.id} to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link><p>{post.attributes.description}</p><p>{railsDateConverter(post.attributes.updated_at)}</p><button id={post.id} onClick={(event) => this.handleOnClick(event)}> X </button></h3>
       )
     });
 
@@ -56,7 +59,7 @@ class Posts extends Component {
       
        
           
-          <select id="filter" className='filter' onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
+          <select className='filter' onChange={(event) => this.handleOnChange(event)} name="category_id" id="category">
              <option value="">--Filter Posts--</option>
              <option value="All">All</option>
               {this.mapCategories()}
@@ -74,8 +77,5 @@ const mapStateToProps = (state) => {
   return {categories: state.categories}
 }
 
-const mapDispathToProps = (dispatch) => {
-  return 
-}
 
 export default connect(mapStateToProps)(Posts);

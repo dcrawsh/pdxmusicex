@@ -52,10 +52,8 @@ export const DELETE_POST_PENDING = `DELETE POST PENDING`;
 export const DELETE_POST_SUCCESS = `DELETE POST SUCCESS`;
 export const DELETE_POST_FAILURE = `DELETE POST FAILURE`;
 
-export const deletePost = (post) => {
-  
-  // let formData = {post: post}
-
+export const deletePost = (postId) => {
+ 
   let configObj = {
     method: "DELETE",
     headers: {
@@ -65,11 +63,11 @@ export const deletePost = (post) => {
   }
 
 
-  console.log(post)
+  console.log(postId)
   
   return (dispatch) => {
     dispatch({ type: DELETE_POST_PENDING })
-    fetch(`http://localhost:3000/api/v1/posts/${post.id}`, configObj)
+    fetch(`http://localhost:3000/api/v1/posts/${postId}`, configObj)
     .then(response => response.json()) 
     .then(responseJSON => {
       console.log(responseJSON)
