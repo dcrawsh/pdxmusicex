@@ -1,12 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '/Users/dylancrawshaw/Desktop/GitHub/pdxmusicex/front-end/src/pdxmusicexlogo1.jpg';
 
 function Nav() {
   return (
     <div className="topnav">
         <nav>
-            <img className='top_logo' src={logo} alt='logo'/>
+            {/* <img className='top_logo' src={logo} alt='logo'/> */}
             <ul>
                 <NavLink  to='/'>
                     <li className="navBtn">Home</li>
