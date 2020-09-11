@@ -39,7 +39,7 @@ class Posts extends Component {
       )
     }
     
-    if(this.state.selectedId !== null){
+    if(this.state.selectedId !== null && this.state.selectedId !== 'All'){
       filteredPosts = posts.posts.filter((post) => { 
         console.log(post)
         return post.attributes.category.id === parseInt(this.state.selectedId)})

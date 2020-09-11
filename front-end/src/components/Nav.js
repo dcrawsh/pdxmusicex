@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Login from './Login'
 
 function Nav() {
   return (
-    <div className="topnav">
-        <nav>
+    <div >
+        <nav className="topnav">
             {/* <img className='top_logo' src={logo} alt='logo'/> */}
             <ul>
                 <NavLink  to='/'>
@@ -22,6 +23,7 @@ function Nav() {
                 
             </ul>
         </nav>
+        <Login></Login>
     </div>
   );
 }
