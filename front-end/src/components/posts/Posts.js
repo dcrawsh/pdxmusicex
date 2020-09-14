@@ -50,7 +50,20 @@ class Posts extends Component {
     
     const postList = filteredPosts.map(post => {
       return (
-        <h3 className='card' key={post.id}><Link id={post.id} to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link><p>{post.attributes.description}</p><p>{railsDateConverter(post.attributes.updated_at)}</p><button id={post.id} onClick={(event) => this.handleOnClick(event)}> X </button></h3>
+
+        <div className='card' key={post.id}>
+
+          <div className='card-header-title'>
+            <Link id={post.id} to={{pathname: `/posts/${post.id}`, state:{attributes: post.attributes}}}> {post.attributes.title} </Link>
+          </div>
+          <div className='card-content'>
+            <p>{post.attributes.description}</p><p>{railsDateConverter(post.attributes.updated_at)}</p>
+          </div>
+          <div className="card-footer">
+            <button className="card-footer-item" id={post.id} onClick={(event) => this.handleOnClick(event)}> Delete </button> 
+            <button className="card-footer-item" id={post.id} onClick={(event) => this.handleOnClick(event)}> Like </button> 
+          </div>
+        </div>
       )
     });
 
