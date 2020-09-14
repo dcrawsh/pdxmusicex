@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,9 +17,9 @@ code {
 
 p {
   color: dark grey;
-}
+} */
 
-.posts{
+/* .posts{
   text-align: center;
 }
 
@@ -53,9 +53,9 @@ img {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-}
+} */
 
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
@@ -80,18 +80,18 @@ img {
   border: 2px solid black;
   border-radius: 10px;
   border: 2px solid black;
-}
+} */
 
 
-.welcome {
+/* .welcome {
   text-align: center;
 }
 
 li a {
   border-right: 5px solid #bbb;
-}
+} */
 
-li:last-child {
+/* li:last-child {
   border-right: none;
 }
 
@@ -102,21 +102,21 @@ input[type=text], select, textarea{
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
-}
+} */
 
-.filter {
+/* .filter {
   width: 25%;
   float: left;
-}
+} */
 
 /* Style the label to display next to the inputs */
-label {
+/* label {
   padding: 12px 12px 12px 0;
   display: inline-block;
-}
+} */
 
 /* Style the submit button */
-input[type=submit] {
+/* input[type=submit] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
@@ -124,43 +124,43 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
-}
+} */
 
 /* Style the container */
-.container {
+/* .container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
-}
+} */
 
 /* Floating column for labels: 25% width */
-.col-25 {
+/* .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
-}
+} */
 
 /* Floating column for inputs: 75% width */
-.col-75 {
+/* .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
-}
+} */
 
 /* Clear floats after the columns */
-.row:after {
+/* .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
-}
+} */
 
 /* .topnav a.active {
   background-color: #4CAF50;

@@ -5,7 +5,7 @@ export default class Login extends Component {
         return (
             <div>
                 <form>
-                    <input name="email" type="text"></input>
+                    <input className="input" name="email" type="text"></input>
                     <input name="password" type="text"></input>
                     <input type='submit'></input>
                 </form>
