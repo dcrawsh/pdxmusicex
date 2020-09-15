@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer'
 import { connect } from 'react-redux';
+import findPost from '../../utils/findPostFromParams';
+import { NavLink } from 'react-router-dom';
 
 
 
 class Post extends Component {
   
   
-  
+  state = {
+    post: {}
+  }
   // handleOnClick() {
   //   this.props.deletePost(this.props.post);
   // }
 
+  componentDidMount() {
+    fetch(`http://localhost:3000/api/v1/posts/${this.props.match.params.id}`)
+    .then(response => response.json()) 
+    .then(responseJSON => {
+      this.setState({post: (responseJSON.data)})
+    })
+  } 
+  
+
   render() {
     
-    const postId = this.props.match.params.id
-
-    const post = this.props.posts.posts.find(post => post.id === postId)
+    const [post, postId] = findPost(this.props)
+    
 
     if(!post) {
       return (
@@ -43,6 +55,7 @@ class Post extends Component {
           {/* <button onClick={() => this.handleOnClick()}> X </button> */}
         </p>
         <CommentsContainer comments={post.attributes.comments} postId={postId}/>
+        <NavLink className='button' to={'/posts' + '/' + postId + '/edit'}>Edit</NavLink>
       </div>
     );
   }

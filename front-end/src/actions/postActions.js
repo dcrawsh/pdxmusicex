@@ -78,6 +78,35 @@ export const deletePost = (postId) => {
     })
   }
 }
+export const PATCH_POST_PENDING = `PATCH POST PENDING`;
+export const PATCH_POST_SUCCESS = `PATCH POST SUCCESS`;
+export const PATCH_POST_FAILURE = `PATCH POST FAILURE`;
+
+export const patchPost = (post) => {
+ 
+  let formData = {post: post}
+
+  let configObj = {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify(formData)
+  }
+  
+  return (dispatch) => {
+    dispatch({ type: PATCH_POST_PENDING })
+    fetch(`http://localhost:3000/api/v1/posts/${post.id}`, configObj)
+    .then(response => response.json()) 
+    .then(responseJSON => {
+      console.log(responseJSON)
+      return dispatch({ type: PATCH_POST_SUCCESS, payload: responseJSON })
+    }).catch(err => {
+      dispatch({ type: PATCH_POST_FAILURE, payload: err })
+    })
+  }
+}
 
 export const GET_POST_PENDING = `GET POST PENDING`;
 export const GET_POST_SUCCESS = `GET POST SUCCESS`;

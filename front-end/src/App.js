@@ -11,6 +11,7 @@ import './App.css';
 import PostInput from './components/posts/PostInput';
 import Post from './components/posts/Post'
 import Root from './components/Root'
+import EditPost from './components/posts/EditPost'
 
 
 
@@ -31,6 +32,7 @@ class App extends Component {
         <Switch>
           <Route path="/posts/new" exact component={PostInput}/>
           <Route path="/posts/:id" exact component={Post}/>
+          <Route path="/posts/:id/edit" exact component={EditPost}/>
           <Route path="/" exact component={Root}/>
           <Route path="/about" exact component={About}/>
           <Route path="/posts" exact render={() => <PostsContainer fetchPosts={this.props.fetchPosts} /> } />

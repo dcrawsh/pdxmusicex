@@ -10,7 +10,7 @@ class Api::V1::PostsController < ApplicationController
     def create 
         
         post = Post.new(post_params)
-        post.likes = 0
+        
         
         if post.save!
             render json: PostSerializer.new(post), status: :accepted
@@ -25,21 +25,20 @@ class Api::V1::PostsController < ApplicationController
         render json: PostSerializer.new(post)
     end
 
-    end
+    
 
-    def edit
-
-    end
-    
-    
-    
-    
-    def update
-        post = Post.find(params[:id])
+    def update 
         
+        post = Post.find(params[:id])
+        post.update(post_params)
 
+        posts = Post.all 
+        render json: PostSerializer.new(posts)
     end
-
+    
+    
+    
+    
     def destroy
         post = Post.find(params[:id])
         post.destroy
