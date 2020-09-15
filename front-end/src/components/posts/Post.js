@@ -33,9 +33,12 @@ class Post extends Component {
     return (
       <div className="card">
         
-        <h3>Post</h3>
-        <h4>{post.attributes.title}</h4>
-        <p>
+        <div className="card-header">
+          <div className="card-header-title">
+            <h4>{post.attributes.title}</h4>
+          </div>
+        </div>
+        <p className='card-content'>
           {post.attributes.description}
           {/* <button onClick={() => this.handleOnClick()}> X </button> */}
         </p>

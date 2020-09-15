@@ -48,6 +48,7 @@ export const postPosts = (post) => {
     })
   }
 }
+
 export const DELETE_POST_PENDING = `DELETE POST PENDING`;
 export const DELETE_POST_SUCCESS = `DELETE POST SUCCESS`;
 export const DELETE_POST_FAILURE = `DELETE POST FAILURE`;
@@ -74,6 +75,33 @@ export const deletePost = (postId) => {
       return dispatch({ type: DELETE_POST_SUCCESS, payload: responseJSON })
     }).catch(err => {
       dispatch({ type: DELETE_POST_FAILURE, payload: err })
+    })
+  }
+}
+
+export const ADD_LIKE_SUCCESS = `ADD LIKE SUCCESS`;
+export const PATCH_POST_PENDING
+
+
+export const addLike = (postId) => {
+  
+  
+  let configObj = {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+  }
+
+  console.log(postId)
+  
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/posts/${postId}`, configObj)
+    .then(response => response.json()) 
+    .then(responseJSON => {
+      console.log(responseJSON)
+      return dispatch({ type: ADD_LIKE_SUCCESS, payload: responseJSON })
     })
   }
 }

@@ -1,5 +1,5 @@
 
-import { POST_POSTS_PENDING, POST_POSTS_SUCCESS, POST_POSTS_FAILURE, GET_POSTS_PENDING, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, DELETE_POST_PENDING, DELETE_POST_SUCCESS, DELETE_POST_FAILURE } from "../actions/postActions";
+import { POST_POSTS_PENDING, POST_POSTS_SUCCESS, POST_POSTS_FAILURE, GET_POSTS_PENDING, GET_POSTS_SUCCESS, GET_POSTS_FAILURE, DELETE_POST_PENDING, DELETE_POST_SUCCESS, DELETE_POST_FAILURE, ADD_LIKE_SUCCESS } from "../actions/postActions";
 
 const initialPostState = {
   loading: false,
@@ -61,6 +61,13 @@ const initialPostState = {
         return {
           ...state,
           loading: false,
+        }
+      }
+      case ADD_LIKE_SUCCESS: {
+        return {
+          ...state,
+          loading: false,
+          posts: [...payload.data]
         }
       }
       default:

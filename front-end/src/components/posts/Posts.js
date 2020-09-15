@@ -61,6 +61,7 @@ class Posts extends Component {
           </div>
           <div className="card-footer">
             <button className="card-footer-item" id={post.id} onClick={(event) => this.handleOnClick(event)}> Delete </button> 
+            <button className="card-footer-item" id={post.id} onClick={(event) => this.handleOnClick(event)}> Edit </button> 
             <button className="card-footer-item" id={post.id} onClick={(event) => this.handleOnClick(event)}> Like </button> 
           </div>
         </div>
@@ -90,5 +91,9 @@ const mapStateToProps = (state) => {
   return {categories: state.categories}
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {addLike: (payload) => dispatch(payload)}
+}
 
-export default connect(mapStateToProps)(Posts);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
