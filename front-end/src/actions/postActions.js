@@ -79,29 +79,20 @@ export const deletePost = (postId) => {
   }
 }
 
-export const ADD_LIKE_SUCCESS = `ADD LIKE SUCCESS`;
-export const PATCH_POST_PENDING
+export const GET_POST_PENDING = `GET POST PENDING`;
+export const GET_POST_SUCCESS = `GET POST SUCCESS`;
+export const GET_POST_FAILURE = `GET POST FAILURE`;
 
-
-export const addLike = (postId) => {
+export const fetchPost = (postId) => {
   
-  
-  let configObj = {
-    method: "PATCH",
-    headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    }
-  }
-
   console.log(postId)
   
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/v1/posts/${postId}`, configObj)
+    fetch(`http://localhost:3000/api/v1/posts/${postId}`)
     .then(response => response.json()) 
     .then(responseJSON => {
       console.log(responseJSON)
-      return dispatch({ type: ADD_LIKE_SUCCESS, payload: responseJSON })
+      return dispatch({ type: GET_POSTS_SUCCESS, payload: responseJSON })
     })
   }
 }
